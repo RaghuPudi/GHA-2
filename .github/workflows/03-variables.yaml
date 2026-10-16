@@ -1,7 +1,6 @@
 name: 08-Working with variables
 run-name: Working with Variables | ${{ vars.TARGET_VAR && 'TRUE' || 'FALSE' }}
 on: 
-    push:
     workflow_dispatch:
     
 env:
