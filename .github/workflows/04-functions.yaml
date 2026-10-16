@@ -1,0 +1,23 @@
+name: 04-Functions-practise
+on: 
+    pull_request:
+    workflow_dispatch:
+
+jobs:
+    functions:
+        runs-on: ubuntu-latest
+        steps:
+            - name: I will fail the job
+              run: exit 1
+            - name: I will execute only if the previous is success
+              if: ${{ success() }}
+              run: "Execute only if previous is success"
+            - name: I will execute on failure
+              if: ${{ failure() }}
+              run: "Execute only if the previous step is failure"
+            - name: I will always execute
+              if: ${{ !cancelled() }}
+              run: "This will execute always"
+            - name: I will execute on cancellation
+              if: ${{ cancelled() }}
+              run: "Execution on workflow cancellation"
