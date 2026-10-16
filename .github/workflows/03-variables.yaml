@@ -1,4 +1,5 @@
 name: 08-Working with variables
+run-name: Working with Variables | ${{ vars.TARGET_VAR && 'TRUE' || 'FALSE' }}
 on: 
     push:
     workflow_dispatch:
@@ -36,7 +37,7 @@ jobs:
         steps:
           - name: Print Variables
             run: |
-                echo "Repo_var: ${{ vars.REPOSITORY_VAR }}
+                echo "Repo_var: ${{ vars.REPOSITORY_VAR }}"
 
     echo-prod:
         runs-on: ubuntu-latest
@@ -44,11 +45,11 @@ jobs:
         steps:
           - name: Print Prod Variables
             run: |
-                echo "Repo_var: ${{ vars.REPOSITORY_VAR }}
-                echo "Environment_var: ${{ vars.TARGET_VAR }}
+                echo "Repo_var: ${{ vars.REPOSITORY_VAR }}"
+                echo "Environment_var: ${{ vars.TARGET_VAR }}"
     echo-undefined:
         runs-on: ubuntu-latest
         steps:
           - name: Print Undefined variables
             run: |
-                echo "Org_var: ${{ env.UNDEFINED_VAR_WITH_DEFAULT }}
+                echo "Org_var: ${{ env.UNDEFINED_VAR_WITH_DEFAULT }}"
