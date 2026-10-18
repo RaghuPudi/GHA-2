@@ -12,6 +12,7 @@ on:
                 required: true
                 description: Which environment will the workflow target
 
+<<<<<<< HEAD
             tag:
                 type: choice
                 options:
@@ -33,7 +34,36 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: deploy
-              if: ${{ success() &&  !inputs.dry-run }}
               environment: ${{ inputs.target }}
+              if: ${{ success() &&  !inputs.dry-run }}
               run: echo "Deploy to the target env:${{ inputs.target }}"
 
+
+=======
+            tag:
+                type: choice
+                options:
+                    - v1
+                    - v2
+                    - v3
+
+                decription: Release from which version to build and deploy
+                default: v3
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Build
+              run: echo "Building the tag:${{ inputs.tag }}"
+
+    deploy: 
+        runs-on: ubuntu-latest
+        if: ${{ success() &&  !inputs.dry-run }}
+        environment: ${{ inputs.target }}
+        steps:
+            - name: deploy
+              run: echo "Deploy to the target env:${{ inputs.target }}"
+
+
+>>>>>>> 9042eb9bbb238382e975e5eda29711fcbc7515f6
