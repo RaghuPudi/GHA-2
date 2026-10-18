@@ -1,5 +1,5 @@
 name: Controlling the execution flow
-run-name: 10-Experimenting and controlling the execution flow | ${{ inputs.pass-unit-tests && 'true' || 'false}}
+run-name: 10-Experimenting and controlling the execution flow | ${{ inputs.pass-unit-tests && 'true' || 'false' }}
 
 on:
     workflow_dispatch:
@@ -53,4 +53,3 @@ jobs:
             - name: deploy to prod
               run: echo "Deploying to Prod"
 
-              
