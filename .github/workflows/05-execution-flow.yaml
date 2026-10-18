@@ -6,7 +6,8 @@ on:
         inputs:
             pass-unit-tests:
                 type: boolean
-                default: false 
+                description: Whether the Unit tests will pass or not
+                default: true 
 
 jobs:
     lint-build:
@@ -22,7 +23,7 @@ jobs:
               run: echo "Run the Unit tests"
             
             - name: Failing tests
-              if: ${{ inputs.pass-unit-tests == 'false' }}
+              if: ${{ !inputs.pass-unit-tests  }}
               run: exit 1
 
     deploy-non-prod:
