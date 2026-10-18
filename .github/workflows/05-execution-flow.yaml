@@ -3,10 +3,10 @@ run-name: 10-Experimenting and controlling the execution flow | ${{ inputs.pass-
 
 on:
     workflow_dispatch:
-    inputs:
-        pass-unit-tests:
-            type: boolean
-            default: false 
+        inputs:
+            pass-unit-tests:
+                type: boolean
+                default: false 
 
 jobs:
     lint-build:
