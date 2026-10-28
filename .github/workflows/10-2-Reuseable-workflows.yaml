@@ -1,0 +1,18 @@
+name: Reuseable workflows caller
+run-name: Reuseable Workflows caller level 
+on:
+    workflow_dispatch:
+
+jobs:
+    deploy-job:
+        uses: ./.github/workflows/10-1-reuseable-workflows.yaml
+        with:
+            target-directory: dummy-dir
+
+    print-job:
+        needs: deploy-job
+        steps:
+            - name: Print the output
+              run: |
+                echo "Build Status:${{ needs.deploy-job.outputs.build-status }}"
+                echo "url:${{ needs.deploy-job.outputs.url }}"
