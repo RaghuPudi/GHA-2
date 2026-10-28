@@ -5,7 +5,6 @@ on:
 
 jobs:
     deploy-job:
-        runs-on: ubuntu-latest
         uses: ./.github/workflows/10-1-reuseable-workflows.yaml
         with:
             target-directory: dummy-dir
