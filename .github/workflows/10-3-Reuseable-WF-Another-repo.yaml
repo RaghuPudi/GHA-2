@@ -1,0 +1,16 @@
+name: 10-3-Practising the reuseable workflow from another repo
+run-name: Getting the reuseable workflow from another repo
+
+on:
+    workflow_dispatch:
+
+jobs:
+    deploy-1:
+        uses: ./.github/workflows/10-1-reuseable-workflows.yaml
+        with:
+            target-directory: dummy-dir
+
+    e2e-tests:
+        uses: RaghuPudi/GHA-Reuseable-Practise-course-example-e2e/.github/workflows/e2e.yaml@main
+        # In my project nationwide-building-society/cicd-gha-action-catalog/.github/workflows/x.yaml@main
+        
